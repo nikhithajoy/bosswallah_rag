@@ -98,10 +98,7 @@ The langdetect library is used to automatically identify the language of each us
 **Why langdetect?**
 It is lightweight, fast, and provides reliable results for a wide range of languages.
 - Translation:
-The googletrans library is used to translate queries to English and responses back to the user’s language if needed.
-**Why googletrans?**
-It consistently delivers accurate translations and supports many languages.
-The translate library was also evaluated but did not perform as well in this context.
+The gemini model is used to translate.
 
 ### LLM Selection: Gemini
 - Gemini LLM:
