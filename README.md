@@ -109,4 +109,4 @@ The Gemini large language model is used for generating responses.
 Why Gemini?
 Gemini is reliable, highly efficient, and offers a generous free tier, making it ideal for both development and production use
 
-[Architecture](docs\bosswallah_rag_architecture.png)
+![Architecture](docs/bosswallah_rag_architecture.png)
