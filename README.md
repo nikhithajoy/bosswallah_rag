@@ -110,3 +110,41 @@ The Gemini large language model is used for generating responses.
 Gemini is reliable, highly efficient, and offers a generous free tier, making it ideal for both development and production use
 
 ![Architecture](docs/bosswallah_rag_architecture.png)
+
+## User Interface (UI) Documentation
+The current UI for the Bosswallah RAG Chatbot is a prototype built using Streamlit.
+
+### Key Features
+- Chat Interface:
+Users can enter queries and receive responses in a conversational format.
+- Sidebar Controls:
+Includes options for pipeline management, model configuration, and viewing system status.
+- Debug Outputs:
+The UI displays detailed debug information such as:
+    - Detected language and confidence
+    - Number of relevant documents retrieved
+    - Context lengths
+    - LLM prompt previews
+    - Web search triggers and results
+    - Error messages and diagnostic info
+Performance Assessment:
+The UI allows for real-time monitoring of model behavior, including fallback logic and token limit handling.
+Prototype Flexibility:
+Multiple experimental features are exposed to facilitate testing and evaluation of different pipeline components.
+Design Rationale
+Prototype Focus:
+The UI is intentionally feature-rich and transparent to support development, debugging, and model assessment.
+Not Final:
+The interface is not optimized for end-user experience or aesthetics; it prioritizes functionality and visibility for developers and testers.
+Extensibility:
+The modular design allows for easy addition or removal of features as the project evolves.
+Next Steps
+User Experience Improvements:
+Future versions will focus on streamlining the interface, improving usability, and enhancing visual design.
+Feature Refinement:
+Debug and assessment features will be refined or hidden as the product moves toward production readiness.
+Feedback Integration:
+Insights gained from prototype usage will inform the final UI design and feature set.
+Summary:
+The current UI serves as a powerful tool for debugging and evaluating the RAG chatbot pipeline.
+It is a prototype, not the final product, and is designed to facilitate rapid development and model assessment.
