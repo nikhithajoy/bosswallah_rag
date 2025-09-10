@@ -98,7 +98,7 @@ The langdetect library is used to automatically identify the language of each us
 **Why langdetect?**
 It is lightweight, fast, and provides reliable results for a wide range of languages.
 - Translation:
-The gemini model is used to translate.
+The googletrans lbrary and gemini model is used to translate.
 
 ### LLM Selection: Gemini
 - Gemini LLM:
