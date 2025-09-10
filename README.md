@@ -93,20 +93,20 @@ Why Chroma?
 Chroma is chosen for its speed, scalability, and seamless integration with popular embedding models and RAG frameworks.
 
 ### Language Detection and Translation
-Language Detection:
+- Language Detection:
 The langdetect library is used to automatically identify the language of each user query.
-Why langdetect?
+**Why langdetect?**
 It is lightweight, fast, and provides reliable results for a wide range of languages.
-Translation:
+- Translation:
 The googletrans library is used to translate queries to English and responses back to the user’s language if needed.
-Why googletrans?
+**Why googletrans?**
 It consistently delivers accurate translations and supports many languages.
 The translate library was also evaluated but did not perform as well in this context.
 
 ### LLM Selection: Gemini
-Gemini LLM:
+- Gemini LLM:
 The Gemini large language model is used for generating responses.
-Why Gemini?
+**Why Gemini?**
 Gemini is reliable, highly efficient, and offers a generous free tier, making it ideal for both development and production use
 
 ![Architecture](docs/bosswallah_rag_architecture.png)
