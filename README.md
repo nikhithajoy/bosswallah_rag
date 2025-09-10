@@ -127,24 +127,15 @@ The UI displays detailed debug information such as:
     - LLM prompt previews
     - Web search triggers and results
     - Error messages and diagnostic info
-Performance Assessment:
+- Performance Assessment:
 The UI allows for real-time monitoring of model behavior, including fallback logic and token limit handling.
-Prototype Flexibility:
+- Prototype Flexibility:
 Multiple experimental features are exposed to facilitate testing and evaluation of different pipeline components.
-Design Rationale
-Prototype Focus:
+
+### Design Rationale
+- Prototype Focus:
 The UI is intentionally feature-rich and transparent to support development, debugging, and model assessment.
-Not Final:
+- Not Final:
 The interface is not optimized for end-user experience or aesthetics; it prioritizes functionality and visibility for developers and testers.
-Extensibility:
+- Extensibility:
 The modular design allows for easy addition or removal of features as the project evolves.
-Next Steps
-User Experience Improvements:
-Future versions will focus on streamlining the interface, improving usability, and enhancing visual design.
-Feature Refinement:
-Debug and assessment features will be refined or hidden as the product moves toward production readiness.
-Feedback Integration:
-Insights gained from prototype usage will inform the final UI design and feature set.
-Summary:
-The current UI serves as a powerful tool for debugging and evaluating the RAG chatbot pipeline.
-It is a prototype, not the final product, and is designed to facilitate rapid development and model assessment.
