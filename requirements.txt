@@ -1,0 +1,23 @@
+# For Streamlit UI
+streamlit
+
+# LangChain for RAG
+langchain
+langchain_community
+
+# Chroma vector store
+chromadb
+
+# HuggingFace embeddings
+sentence-transformers
+google-generativeai
+
+# Data processing
+pandas
+numpy
+seaborn
+matplotlib
+
+# Optional: for LLMs (local models)
+transformers
+torch
