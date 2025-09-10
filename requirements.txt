@@ -4,20 +4,35 @@ streamlit
 # LangChain for RAG
 langchain
 langchain_community
+langchain-google-genai
 
 # Chroma vector store
 chromadb
 
 # HuggingFace embeddings
 sentence-transformers
+
+# Google services
 google-generativeai
+
+# Language detection and translation
+langdetect
+googletrans==4.0.0rc1
+
+# Web search functionality
+requests
 
 # Data processing
 pandas
 numpy
+
+# Environment variables
+python-dotenv
+
+# Optional: for visualization
 seaborn
 matplotlib
 
-# Optional: for LLMs (local models)
+# Optional: for local models
 transformers
 torch

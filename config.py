@@ -30,7 +30,34 @@ LLM_CONFIG = {
 RAG_CONFIG = {
     "chunk_size": 200,
     "search_k": 3,
-    "similarity_threshold": 0.7
+    "similarity_threshold": 0.7,
+    "insufficient_docs_threshold": 1,  # Trigger web search if less than this many docs
+    "low_confidence_threshold": 0.6    # Trigger web search if confidence below this
+}
+
+# Google Search API Configuration
+GOOGLE_SEARCH_CONFIG = {
+    "api_key_env": "GOOGLE_SEARCH_API_KEY",
+    "search_engine_id_env": "GOOGLE_SEARCH_ENGINE_ID", 
+    "max_results": 5,
+    "timeout": 10,
+    "safe_search": "active",
+    "search_type": "searchTypeUndefined"  # Can be "image" for image search
+}
+
+# Web search integration settings
+WEB_SEARCH_CONFIG = {
+    "enable_web_search": True,
+    "auto_trigger_conditions": {
+        "insufficient_docs": True,      # Auto-trigger when few RAG results
+        "general_queries": True,        # Auto-trigger for non-course specific queries
+        "low_confidence": False         # Don't auto-trigger on low confidence (can be noisy)
+    },
+    "search_query_templates": {
+        "course_related": "online courses {query} education training",
+        "general": "{query} education learning",
+        "specific_skill": "{query} course certification training"
+    }
 }
 
 # Streamlit page configuration
@@ -46,7 +73,8 @@ CHAT_CONFIG = {
     "max_messages": 50,
     "typing_delay": 0.02,
     "show_timestamps": True,
-    "show_language_detection": True
+    "show_language_detection": True,
+    "show_web_search_indicator": True
 }
 
 # Translation rate limiting

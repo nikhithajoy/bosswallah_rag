@@ -11,8 +11,12 @@ class LLMManager:
     """Manages LLM initialization and configuration."""
     
     def __init__(self):
-        self.llm = None
         self._load_environment()
+        self.llm = ChatGoogleGenerativeAI(
+            model=GEMINI_MODEL_NAME,
+            google_api_key=self.api_key,
+            **LLM_CONFIG
+        )
     
     def _load_environment(self):
         """Load environment variables."""
