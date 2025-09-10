@@ -93,20 +93,49 @@ Why Chroma?
 Chroma is chosen for its speed, scalability, and seamless integration with popular embedding models and RAG frameworks.
 
 ### Language Detection and Translation
-Language Detection:
+- Language Detection:
 The langdetect library is used to automatically identify the language of each user query.
-Why langdetect?
+**Why langdetect?**
 It is lightweight, fast, and provides reliable results for a wide range of languages.
-Translation:
+- Translation:
 The googletrans library is used to translate queries to English and responses back to the user’s language if needed.
-Why googletrans?
+**Why googletrans?**
 It consistently delivers accurate translations and supports many languages.
 The translate library was also evaluated but did not perform as well in this context.
 
 ### LLM Selection: Gemini
-Gemini LLM:
+- Gemini LLM:
 The Gemini large language model is used for generating responses.
-Why Gemini?
+**Why Gemini?**
 Gemini is reliable, highly efficient, and offers a generous free tier, making it ideal for both development and production use
 
-[Architecture](docs\bosswallah_rag_architecture.png)
+![Architecture](docs/bosswallah_rag_architecture.png)
+
+## User Interface (UI) Documentation
+The current UI for the Bosswallah RAG Chatbot is a prototype built using Streamlit.
+
+### Key Features
+- Chat Interface:
+Users can enter queries and receive responses in a conversational format.
+- Sidebar Controls:
+Includes options for pipeline management, model configuration, and viewing system status.
+- Debug Outputs:
+The UI displays detailed debug information such as:
+    - Detected language and confidence
+    - Number of relevant documents retrieved
+    - Context lengths
+    - LLM prompt previews
+    - Web search triggers and results
+    - Error messages and diagnostic info
+- Performance Assessment:
+The UI allows for real-time monitoring of model behavior, including fallback logic and token limit handling.
+- Prototype Flexibility:
+Multiple experimental features are exposed to facilitate testing and evaluation of different pipeline components.
+
+### Design Rationale
+- Prototype Focus:
+The UI is intentionally feature-rich and transparent to support development, debugging, and model assessment.
+- Not Final:
+The interface is not optimized for end-user experience or aesthetics; it prioritizes functionality and visibility for developers and testers.
+- Extensibility:
+The modular design allows for easy addition or removal of features as the project evolves.
