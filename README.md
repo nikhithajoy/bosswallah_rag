@@ -49,76 +49,6 @@ bosswallah_rag/
 └── test_search.py
 ```
 
-## 🛠️ Installation & Setup
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/boss-wallah-rag-chatbot.git
-cd boss-wallah-rag-chatbot
-```
-
-### 2. Create Virtual Environment
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Set Up Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-GEMINI_API_KEY=your_google_gemini_api_key_here
-```
-
-### 5. Get Google Gemini API Key
-
-1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
-2. Create a new API key
-3. Copy the key to your `.env` file
-
-### 6. Download Dataset
-
-Download the Boss Wallah courses dataset CSV file and place it in the `data/` directory as `courses.csv`.
-
-## 🚀 Running the Application
-
-### Start the Streamlit App
-
-```bash
-streamlit run app.py
-```
-
-The app will open in your browser at `http://localhost:8501`
-
-### Using the Chatbot
-
-1. **Upload Dataset**: Upload the Boss Wallah courses CSV file
-2. **Enter API Key**: Provide your Google Gemini API key
-3. **Start Chatting**: Use the test questions or ask your own questions
-
-## 🧪 Test Cases
-
-The chatbot handles all required test cases:
-
-### Standard Questions
-1. **"Tell me about honey bee farming course"**
-2. **"I want to learn how to start a poultry farm"**
-3. **"Do you have any courses in Tamil?"**
-4. **"I am a recent high school graduate, are there any opportunities for me?"**
-
-### Bonus Questions
-1. **"How many cows do I need to start a dairy farm?" (in Hindi/Tamil/Telugu/Kannada/Malayalam)**
-2. **"Are there any stores near Whitefield, Bangalore where I can buy seeds for papaya farming?"**
-
 ## 🏗️ RAG Architecture
 
 ### 1. Data Ingestion (`data_loader.py`)
@@ -142,110 +72,41 @@ The chatbot handles all required test cases:
 - Multilingual response generation
 - Safety settings and error handling
 
-## 💡 Key Components
+## Worflow Documentation
 
-### VectorStore Class
-```python
-# Create embeddings and build FAISS index
-vector_store = VectorStore()
-embeddings = vector_store.create_embeddings(texts)
-vector_store.build_index(index_type='flat')
+### Data Source Selection: Why CSV?
+For this project, a CSV file was chosen as the primary data source for course information.
 
-# Semantic search
-results = vector_store.search(query, top_k=5)
-```
+- Tabular Structure: The dataset is inherently tabular, making CSV the most natural and efficient format.
+- Ease of Processing: CSV files are straightforward to parse, manipulate, and integrate into RAG pipelines compared to formats like PDF, which require complex extraction and may introduce errors.
+- Performance: CSV enables fast loading and processing, which is crucial for real-time chatbot interactions.
 
-### RAG Pipeline
-```python
-# 1. Retrieve relevant courses
-relevant_courses = rag_system.retrieve_relevant_courses(query)
+### Data Preparation: Chunking and Embedding
+- Chunking:
+The course data is split into manageable text chunks. This ensures that each chunk contains coherent information and improves retrieval accuracy.
+- Embedding:
+Each chunk is converted into a vector representation using a sentence transformer model (all-MiniLM-L6-v2).
+This allows for semantic similarity search between user queries and course content.
+- Vector Store:
+The Chroma vector database is used to store and retrieve embeddings.
+Why Chroma?
+Chroma is chosen for its speed, scalability, and seamless integration with popular embedding models and RAG frameworks.
 
-# 2. Generate contextual response
-response = rag_system.generate_response(query, relevant_courses)
-```
+### Language Detection and Translation
+Language Detection:
+The langdetect library is used to automatically identify the language of each user query.
+Why langdetect?
+It is lightweight, fast, and provides reliable results for a wide range of languages.
+Translation:
+The googletrans library is used to translate queries to English and responses back to the user’s language if needed.
+Why googletrans?
+It consistently delivers accurate translations and supports many languages.
+The translate library was also evaluated but did not perform as well in this context.
 
-### Multilingual Support
-```python
-# Handle multilingual queries
-response = rag_system.handle_multilingual_query(query, target_language='Hindi')
-```
+### LLM Selection: Gemini
+Gemini LLM:
+The Gemini large language model is used for generating responses.
+Why Gemini?
+Gemini is reliable, highly efficient, and offers a generous free tier, making it ideal for both development and production use
 
-## 🌐 Multilingual Capabilities
-
-The chatbot supports:
-- **Hindi (हिंदी)**: Code 6
-- **Kannada (ಕನ್ನಡ)**: Code 7
-- **Malayalam (മലയാളം)**: Code 11
-- **Tamil (தமிழ்)**: Code 20
-- **Telugu (తెలుగు)**: Code 21
-- **English**: Code 24
-
-## 📊 Performance Optimizations
-
-- **FAISS Indexing**: Fast similarity search with normalized embeddings
-- **Batch Processing**: Efficient embedding creation
-- **Caching**: Session state management in Streamlit
-- **Memory Management**: Optimized data structures
-
-## 🔧 Configuration Options
-
-### Embedding Model
-```python
-# Change embedding model
-vector_store = VectorStore(model_name='sentence-transformers/paraphrase-MiniLM-L6-v2')
-```
-
-### Search Parameters
-```python
-# Adjust retrieval parameters
-results = vector_store.search(
-    query=query,
-    top_k=10,
-    score_threshold=0.4
-)
-```
-
-### LLM Configuration
-```python
-# Customize Gemini settings
-generation_config = {
-    'temperature': 0.7,
-    'top_p': 0.8,
-    'max_output_tokens': 1024
-}
-```
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-1. **API Key Error**
-   ```
-   Error: GEMINI_API_KEY is required
-   ```
-   Solution: Set your Google Gemini API key in environment variables
-
-2. **Module Import Error**
-   ```
-   ModuleNotFoundError: No module named 'sentence_transformers'
-   ```
-   Solution: Install requirements: `pip install -r requirements.txt`
-
-3. **FAISS Installation Issues**
-   ```
-   pip install faiss-cpu  # For CPU version
-   pip install faiss-gpu  # For GPU version (if CUDA available)
-   ```
-
-4. **Dataset Loading Error**
-   ```
-   FileNotFoundError: courses.csv
-   ```
-   Solution: Ensure the CSV file is in the correct location
-
-## 📈 Future Enhancements
-
-- [ ] Add more advanced retrieval techniques (hybrid search)
-- [ ] Implement conversation memory
-- [ ] Add more Indian languages
-- [
+[Architecture](docs\bosswallah_rag_architecture.png)
