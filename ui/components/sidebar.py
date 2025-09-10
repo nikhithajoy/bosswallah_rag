@@ -31,8 +31,7 @@ class Sidebar:
         st.markdown("### Multilingual Support")
         st.markdown("""
         **Supported Languages:**
-        - 🇮🇳 हिंदी (Hindi)
-        - 🇮🇳 मराठी (Marathi)  
+        - 🇮🇳 हिंदी (Hindi) 
         - 🇮🇳 മലയാളം (Malayalam)
         - 🇮🇳 தமிழ் (Tamil)
         - 🇮🇳 తెలుగు (Telugu)

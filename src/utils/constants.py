@@ -48,7 +48,7 @@ WELCOME_MESSAGE = """
 🎓 Welcome to Boswallah Course Assistant!
 
 I can help you find information about courses in multiple languages including:
-- English, हिंदी (Hindi), मराठी (Marathi)
+- English, हिंदी (Hindi
 - മലയാളം (Malayalam), தமிழ் (Tamil), తెలుగు (Telugu), ಕನ್ನಡ (Kannada)
 
 Ask me anything about courses, requirements, languages, or specific topics!
